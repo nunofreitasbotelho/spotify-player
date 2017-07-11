@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "start": "./node_modules/.bin/webpack-dev-server --inline --open",
+    "start": "./node_modules/.bin/webpack-dev-server",
     "dev": "./node_modules/.bin/webpack --progress",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress",
     "watch": "npm run build -- --watch",
@@ -18,8 +18,13 @@
     "functions": 80,
     "lines": 80,
     "check-coverage": true,
-    "reporter": ["text", "html"],
-    "exclude": ["tests/**"]
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
   },
   "repository": {
     "type": "git",
@@ -40,11 +45,17 @@
     "chai": "^4.0.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-chai-friendly": "^0.3.6",
     "eslint-plugin-import": "^2.6.1",
     "husky": "^0.14.1",
+    "jsdom": "^11.1.0",
+    "jsdom-global": "^3.0.2",
     "mocha": "^3.4.2",
     "nyc": "^11.0.3",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0"
+  },
+  "dependencies": {
+    "spotify-wrapper-nfb": "^1.0.3"
   }
 }

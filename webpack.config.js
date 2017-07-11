@@ -1,29 +1,27 @@
+const path = require('path');
 const webpack = require('webpack');
 
-const inProduction = process.env.NODE_ENV === 'production';
-
 module.exports = {
-  devtool: 'source-map',
+  context: path.resolve(__dirname, './src'),
   entry: {
-    filename: './src/main.js',
+    app: './main.js',
   },
   output: {
-    filename: './dist/bundle.js',
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, './example'),
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './example'),
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+        exclude: [/node_modules/],
+        use: [{
+          loader: 'babel-loader',
+        }],
       },
     ],
   },
-  plugins: [],
 };
-
-if (inProduction) {
-  module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin({
-    sourceMap: true,
-  }));
-}
