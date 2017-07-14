@@ -5,7 +5,6 @@ export default function renderAlbumInfo(data, element) {
     <p class="album-artist">${data.artists[0].name}</p>
     <p class="album-counter">${data.tracks.total} Músicas</p>
 `;
-
   element.innerHTML = markup;
   return data;
 }
